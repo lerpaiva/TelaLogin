@@ -1,8 +1,6 @@
 from flask import Flask, render_template, request, redirect, url_for
 import mysql.connector
 
-
-
 app = Flask(__name__)
 
 @app.route("/", methods=["POST"])
@@ -25,11 +23,11 @@ def login():
         if resultados:
             cursor.close()
             conexao.close()
-            return redirect(url_for('home'))  # Redireciona para a rota /home após autenticação bem-sucedida
+            return redirect(url_for('home')) 
         else:
             cursor.close()
             conexao.close()
-            return render_template('forms.html', logado=False)  # Retorna a página de login com mensagem de erro
+            return render_template('forms.html', logado=False)
     return render_template("forms.html", logado=False)
 
 @app.route("/home")
