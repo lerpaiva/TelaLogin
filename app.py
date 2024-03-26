@@ -3,7 +3,7 @@ import mysql.connector
 
 app = Flask(__name__)
 
-@app.route("/", methods=["POST"])
+@app.route("/", methods=[ "GET","POST"])
 def login():
     conexao = mysql.connector.connect(
     host="127.0.0.1",
